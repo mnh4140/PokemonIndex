@@ -33,39 +33,4 @@ class PokemonListCell: BaseCollectionViewCell {
             make.edges.equalToSuperview()
         }
     }
-    private func pokemonID(url: String) -> Int {
-        
-        guard let stringID = url.split(separator: "/").last else {
-            print("오류: url에서 id 값을 추출 실패")
-            return 0
-        }
-        print(stringID)
-        guard let id = Int(stringID) else {
-            print("오류: id 값 정수형 변환 실패")
-            return 0
-        }
-        return id
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        pokemonImageView.image = nil
-    }
-    
-    func configure(data: PokemonList.Pokemon) {
-        let id = pokemonID(url: data.url)
-        
-        let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
-        guard let url = URL(string: urlString) else { return }
-        
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) { // 동기 실행이여서 비동기로 실행해야됨, 안그럼 UI가 멈춤
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.sync { // UI 작업은 메인 스레드가 해야됨
-                        self?.pokemonImageView.image = image
-                    }
-                }
-            }
-        }
-    }
 }
