@@ -49,7 +49,7 @@ class MainViewModel {
             .subscribe(onSuccess: { [weak self] (response: PokemonList) in
                 self?.pokemonListSubject.onNext(response.results)
                 // 실패 시, Subject에 에러를 담아 View에 전달
-            }, onFailure: {[weak self] error in
+            }, onFailure: { [weak self] error in
                 self?.pokemonListSubject.onError(error)
             }).disposed(by: disposeBag)
     }

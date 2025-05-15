@@ -24,23 +24,34 @@ extension PokemonList {
     }
 }
 
-/// - 포켓몬 상세 정보 데이터 모델
-struct PokemonDetail: Decodable {
-    /*
-     이미지
-     도감번호
-     이름
-     타입
-     키
-     몸무게
-     */
-    let sprites: PokemonSprites // 이미지
-    let id: Int // 도감 번호
-    let name: String // 이름
-    let types: [PokemonType] // 타입
-    let height: Int // 키
-    let weight: Int // 몸무게
+extension PokemonList.Pokemon{
+    var id: Int? {
+        let components = url.split(separator: "/").map { String($0) }
+        return Int(components.last ?? "")
+    }
 }
+//struct PokemonDetails: Decodable {
+//    let results: [PokemonDetail?]
+//}
+//
+//extension PokemonDetails {
+    /// - 포켓몬 상세 정보 데이터 모델
+    struct PokemonDetail: Decodable {
+        /*
+         이미지
+         도감번호
+         이름
+         타입
+         키
+         몸무게
+         */
+        let sprites: PokemonSprites // 이미지
+        let id: Int // 도감 번호
+        let name: String // 이름
+        let types: [PokemonType] // 타입
+        let height: Int // 키
+        let weight: Int // 몸무게
+    }
 
 extension PokemonDetail {
     /// - 포켓몬 사진
@@ -57,7 +68,9 @@ extension PokemonDetail {
         let slot: Int
         let type: PokemonTypeInfo
     }
-    
+}
+
+extension PokemonDetail.PokemonType {
     /// - 포켓몬 타입 정보
     struct PokemonTypeInfo : Decodable {
         let name: String

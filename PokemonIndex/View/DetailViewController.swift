@@ -9,11 +9,18 @@ import UIKit
 import SnapKit
 
 class DetailViewController: BaseViewController {
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     override func setUI() {
-        <#code#>
+        view.backgroundColor = .green
     }
     
     override func setConstraints() {
-        <#code#>
+        
     }
 }
