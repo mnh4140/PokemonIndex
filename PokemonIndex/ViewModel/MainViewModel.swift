@@ -17,11 +17,11 @@ import RxSwift
  */
 
 class MainViewModel {
-  /// - View가 구독 할 subject
-  /// - 뷰에서 이 Subject를 구독하여, 새로운 포켓몬 리스트가 들어오면 자동으로 반응함
-  /// - BehaviorSubject는 최근 값 1개를 저장하고, 구독 즉시 현재 값을 전달.
-  /// - 타입은 [PokemonList.Pokemon], 포켓몬 리스트 배열.
-  /// - 초기값으로 빈 배열을 설정합니다.
+  /// View가 구독 할 subject
+  /// 뷰에서 이 Subject를 구독하여, 새로운 포켓몬 리스트가 들어오면 자동으로 반응함
+  /// BehaviorSubject는 최근 값 1개를 저장하고, 구독 즉시 현재 값을 전달.
+  /// 타입은 [PokemonList.Pokemon], 포켓몬 리스트 배열.
+  /// 초기값으로 빈 배열을 설정합니다.
   let pokemonListSubject = BehaviorSubject(value: [PokemonList.Pokemon]())
    
   private let disposeBag = DisposeBag()
