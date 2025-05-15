@@ -113,7 +113,9 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PokemonListCell.self), for: indexPath) as? PokemonListCell else { return .init()}
         
-        cell.configure(data: pokemonList[indexPath.item])
+        guard let id = pokemonList[indexPath.item].id else { return .init() }
+        
+        cell.configure(id: id)
         
         return cell
     }

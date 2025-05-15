@@ -52,8 +52,10 @@ class PokemonListCell: BaseCollectionViewCell {
         pokemonImageView.image = nil
     }
     
-    func configure(data: PokemonList.Pokemon) {
-        let id = pokemonID(url: data.url)
+    func configure(id: Int) {
+        //let id = pokemonID(url: data.url)
+        
+        //guard let id = data.id else { return }
         
         let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
         guard let url = URL(string: urlString) else { return }
