@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EDEC19B22DD580610092A9F4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EDEC19B12DD580610092A9F4 /* SnapKit */; };
+		EDEC19B62DD580980092A9F4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EDEC19B52DD580980092A9F4 /* RxSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EDEC19932DD57A7E0092A9F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -48,16 +53,6 @@
 			path = PokemonIndex;
 			sourceTree = "<group>";
 		};
-		EDEC19952DD57A7E0092A9F4 /* PokemonIndexTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PokemonIndexTests;
-			sourceTree = "<group>";
-		};
-		EDEC199F2DD57A7E0092A9F4 /* PokemonIndexUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PokemonIndexUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEC19B62DD580980092A9F4 /* RxSwift in Frameworks */,
+				EDEC19B22DD580610092A9F4 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,8 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				EDEC197E2DD57A7C0092A9F4 /* PokemonIndex */,
-				EDEC19952DD57A7E0092A9F4 /* PokemonIndexTests */,
-				EDEC199F2DD57A7E0092A9F4 /* PokemonIndexUITests */,
+				EDEC19B42DD580980092A9F4 /* Frameworks */,
 				EDEC197D2DD57A7C0092A9F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +99,13 @@
 				EDEC199C2DD57A7E0092A9F4 /* PokemonIndexUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EDEC19B42DD580980092A9F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +128,8 @@
 			);
 			name = PokemonIndex;
 			packageProductDependencies = (
+				EDEC19B12DD580610092A9F4 /* SnapKit */,
+				EDEC19B52DD580980092A9F4 /* RxSwift */,
 			);
 			productName = PokemonIndex;
 			productReference = EDEC197C2DD57A7C0092A9F4 /* PokemonIndex.app */;
@@ -142,9 +147,6 @@
 			);
 			dependencies = (
 				EDEC19942DD57A7E0092A9F4 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EDEC19952DD57A7E0092A9F4 /* PokemonIndexTests */,
 			);
 			name = PokemonIndexTests;
 			packageProductDependencies = (
@@ -165,9 +167,6 @@
 			);
 			dependencies = (
 				EDEC199E2DD57A7E0092A9F4 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EDEC199F2DD57A7E0092A9F4 /* PokemonIndexUITests */,
 			);
 			name = PokemonIndexUITests;
 			packageProductDependencies = (
@@ -208,6 +207,10 @@
 			);
 			mainGroup = EDEC19732DD57A7C0092A9F4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EDEC19B02DD580610092A9F4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EDEC19B32DD580910092A9F4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EDEC197D2DD57A7C0092A9F4 /* Products */;
 			projectDirPath = "";
@@ -293,9 +296,9 @@
 				INFOPLIST_FILE = PokemonIndex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +323,9 @@
 				INFOPLIST_FILE = PokemonIndex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,6 +566,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EDEC19B02DD580610092A9F4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		EDEC19B32DD580910092A9F4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDEC19B12DD580610092A9F4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDEC19B02DD580610092A9F4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EDEC19B52DD580980092A9F4 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDEC19B32DD580910092A9F4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EDEC19742DD57A7C0092A9F4 /* Project object */;
 }
