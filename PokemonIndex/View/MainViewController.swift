@@ -120,5 +120,14 @@ extension MainViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let id = pokemonList[indexPath.item].id else { return }
+        
+        let detailModel = DetailViewModel(id: id)
+        
+        let detailVC = DetailViewController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        //print(id)
+        
+    }
 }
