@@ -22,7 +22,7 @@ final class MainViewController: BaseViewController {
     private let disposebag = DisposeBag()
     
     private var pokemonList = [PokemonList.Pokemon]()
-
+    
     
     private let monsterBallImageView = UIImageView() // 몬스터볼 이미지
     // 포켓몬 리스트 UICollectionView
@@ -30,11 +30,12 @@ final class MainViewController: BaseViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
-
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(PokemonListCell.self, forCellWithReuseIdentifier: String(describing: PokemonListCell.self))
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true // 튕기는 느낌
         return collectionView
     }()
     
@@ -130,5 +131,26 @@ extension MainViewController: UICollectionViewDataSource {
         self.navigationController?.pushViewController(detailVC, animated: true)
         //print(id)
         
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.isDragging == true else { return }
+        
+        // 스크롤 y축 위치
+        let offsetY = scrollView.contentOffset.y
+        // 스크롤 뷰 내용의 높이
+        let contentHeight = scrollView.contentSize.height
+        // 스크롤 뷰의 높이 (실제 화면에 보이는 높이)
+        let height = scrollView.frame.size.height
+        
+        let pullUpDistance = offsetY + height - contentHeight
+        let threshold: CGFloat = 100
+        
+        if pullUpDistance > threshold {
+            if !viewModel.isLoading {
+                print("아래로 땅겨서 호출")
+                viewModel.fetchPokemonList()
+            }
+        }
     }
 }
