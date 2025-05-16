@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class PokemonListCell: BaseCollectionViewCell {
     let pokemonImageView = UIImageView()
@@ -53,21 +54,23 @@ class PokemonListCell: BaseCollectionViewCell {
     }
     
     func configure(id: Int) {
-        //let id = pokemonID(url: data.url)
         
-        //guard let id = data.id else { return }
+        //MARK: 킹피셔 쓰기 전
+//        let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
+//        guard let url = URL(string: urlString) else { return }
+//        
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(contentsOf: url) { // 동기 실행이여서 비동기로 실행해야됨, 안그럼 UI가 멈춤
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.sync { // UI 작업은 메인 스레드가 해야됨
+//                        self?.pokemonImageView.image = image
+//                    }
+//                }
+//            }
+//        }
         
-        let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
-        guard let url = URL(string: urlString) else { return }
-        
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) { // 동기 실행이여서 비동기로 실행해야됨, 안그럼 UI가 멈춤
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.sync { // UI 작업은 메인 스레드가 해야됨
-                        self?.pokemonImageView.image = image
-                    }
-                }
-            }
-        }
+        // MARK: - 킹피셔 사용
+        let url = URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png")
+        pokemonImageView.kf.setImage(with: url)
     }
 }
